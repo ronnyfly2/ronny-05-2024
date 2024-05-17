@@ -67,4 +67,5 @@ export interface Pokemon {
   selected?: boolean;
   weight?: number;
   height?: number;
+  description?: string
 }

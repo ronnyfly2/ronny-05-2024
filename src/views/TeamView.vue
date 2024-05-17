@@ -17,10 +17,6 @@
     await teamStore.removePokemon(pokemon)
     await pokemonStore.removeSlectedPokemon(pokemon)
   }
-  const getFlavorText = (pokemon:Pokemon) => {
-    const findFlavorText = pokemon.species?.flavor_text_entries.find(text=>text.language.name==='en')
-    return findFlavorText && findFlavorText.flavor_text ? findFlavorText.flavor_text : pokemon.species?.flavor_text_entries[0].flavor_text
-  }
   
 </script>
 <template>
@@ -44,7 +40,7 @@
             <AudioSource :audioSrc="pokemon.cries?.latest" />
           </div>
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white capitalize">{{ pokemon.name }}</h5>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ getFlavorText(pokemon) }}</p>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ pokemon.description }}</p>
           <div class="flex gap-2 mb-4">
             <span
               class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"

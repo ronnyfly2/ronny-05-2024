@@ -74,6 +74,7 @@ export const usePokemonStore = defineStore("pokemon", {
         if(idFrom){
           this.getEvolutionChain(idFrom)
         }
+        this.pokemon.description = await this.getDescription(this.pokemon)
     },
     async getEvolutionChain(id: number) {
       const evolutionChain = await getItemByIdServiceForGet(`evolution-chain`, id)
@@ -102,6 +103,10 @@ export const usePokemonStore = defineStore("pokemon", {
       const index = this.pokemonList.findIndex(p => p.name === pokemon.name)
       this.pokemonList[index].selected = false
       this.count--
+    },
+    async getDescription(pokemon: Pokemon) {
+      const description = pokemon.species?.flavor_text_entries.find((description: any) => description.language.name === 'en')
+      return description && description.flavor_text ? description.flavor_text : pokemon.species?.flavor_text_entries[0].flavor_text
     }
   },
 });

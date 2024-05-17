@@ -60,7 +60,7 @@ const goBack = () => {
           <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">{{ pokemonTeam.height / 10 }}Mts</span>
         </div>
         <div class="w-full pt-6">
-          <p v-if="pokemonTeam.species && pokemonTeam.species.flavor_text_entries" class="mb-4 font-normal text-gray-700 dark:text-gray-400">{{ pokemonTeam.species?.flavor_text_entries[0].flavor_text }}</p>
+          <p class="text-center mb-4 font-normal text-gray-700 dark:text-gray-400">{{ pokemonTeam.description }}</p>
           <div class="flex gap-6">
             <div class="flex flex-col w-full">
               <strong class="block my-2">Base Stats:</strong>
