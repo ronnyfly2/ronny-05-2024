@@ -18,11 +18,9 @@ onMounted(async () => {
   if(route.params.id){
     let id = Number(route.params.id)
     const isTeam = await teamStore.getPokemonTeam(id)
-    console.log(isTeam)
     if(!isTeam){
       router.push({ path: '/team' })
     }
-    
   }
 })
 const goBack = () => {

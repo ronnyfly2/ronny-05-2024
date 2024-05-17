@@ -2,20 +2,20 @@ import { defineStore } from "pinia"
 import { type Pokemon } from "@/interfaces/pokemon"
 
 interface State {
-  pokemonTeam:   Pokemon;
-  team:      Pokemon[];
-  limitTeam: number;
-  loading:   boolean;
-  error:     string;
+  pokemonTeam: Pokemon;
+  team:        Pokemon[];
+  limitTeam:   number;
+  loading:     boolean;
+  error:       string;
 }
 
 export const useTeamStore = defineStore("team", {
   state: (): State => ({
-    pokemonTeam:   {name: "", url: ""},
-    team:      [],
-    limitTeam: 6,
-    loading:   false,
-    error:     "",
+    pokemonTeam: {name: "", url: ""},
+    team:        [],
+    limitTeam:   6,
+    loading:     false,
+    error:       "",
   }),
   actions: {
     async addPokemon(pokemon: Pokemon) {

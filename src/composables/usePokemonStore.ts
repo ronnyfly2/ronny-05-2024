@@ -102,6 +102,6 @@ export const usePokemonStore = defineStore("pokemon", {
       const index = this.pokemonList.findIndex(p => p.name === pokemon.name)
       this.pokemonList[index].selected = false
       this.count--
-    },
+    }
   },
 });
