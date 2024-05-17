@@ -86,12 +86,13 @@ const goBack = () => {
               <strong class="block my-2">Evolutions:</strong>
               <div class="flex flex-wrap gap-4">
                 <div v-for="(evol, idx) in pokemonTeam.chain_evolves_to" :key="idx">
-                  <img v-if="evol.species.name!=pokemonTeam.name" class=" w-20 h-20" :src="`https://img.pokemondb.net/sprites/home/normal/${evol.species.name}.png`" :alt="evol.species.name" />
-                  <span v-if="evol.species.name!=pokemonTeam.name">{{ evol.species.name }}</span>
+                  <img v-if="evol.species.name!=pokemonTeam.name && evol.species.name!=pokemonTeam.evolves_from_species?.name" class=" w-20 h-20" :src="`https://img.pokemondb.net/sprites/home/normal/${evol.species.name}.png`" :alt="evol.species.name" />
+                  <span v-if="evol.species.name!=pokemonTeam.name && evol.species.name!=pokemonTeam.evolves_from_species?.name">{{ evol.species.name }}</span>
                   <div v-if="evol.evolves_to">
                     <div v-for="(prev, ind) in evol.evolves_to" :key="ind">
                       <img v-if="prev.species.name != pokemonTeam.name" class=" w-20 h-20" :src="`https://img.pokemondb.net/sprites/home/normal/${prev.species.name}.png`" :alt="prev.species.name" />
-                      <span>{{ prev.species.name }}</span>
+                      <span v-if="prev.species.name != pokemonTeam.name">{{ prev.species.name }}</span>
+                      <span v-else>---</span>
                     </div>
                   </div>
                 </div>
