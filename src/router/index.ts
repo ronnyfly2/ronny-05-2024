@@ -34,7 +34,15 @@ const router = createRouter({
         }
       ]
     },
-  ]
+    {
+      path: '/:pathMatch(.*)*', // catch all 404
+      name: 'NotFound',
+      component: () => import('@/views/NotFoundView.vue'),
+    }
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  },
 })
 
 export default router

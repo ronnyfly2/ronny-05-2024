@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from "vue"
+import { useTeamStore } from "@/composables/useTeamStore";
+
+const teamStore = useTeamStore();
+
+
 import logoPokemon from "@/assets/img/pokemon.png"; 
 
 const toggleMenu = ref(false);
@@ -40,13 +45,16 @@ const toggle = () => {
           >Home</router-link>
 
         </li>
-        <li>
+        <li class="flex">
           <router-link
             to="/team"
             activeClass="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
             class="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             @click="toggle"
           >My Team</router-link>
+          <span class="flex items-center justify-center w-4 h-4 text-[10px] text-white bg-blue-700 rounded-full mt-[-5px] ms-[-1px]">
+            {{ teamStore.team.length }}
+          </span>
         </li>
       </ul>
     </div>

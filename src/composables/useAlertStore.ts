@@ -8,12 +8,12 @@ interface State {
 export const useAlertStore = defineStore('alert', {
   state: (): State => ({
     isActive: false,
-    message: 'alert de prueba',
+    message: 'test alert',
     typeAlert: {
       error: {
         selected: false,
         class: 'text-red-800 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800',
-        classIcon: 'bg-red-50 text-red-500 focus:ring-red-400 p-1.5 hover:bg-red-200 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700'
+        classIcon: 'bg-red-50 text-red-800 focus:ring-red-400 p-1.5 hover:bg-red-200 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700'
       },
       success: {
         selected: false,

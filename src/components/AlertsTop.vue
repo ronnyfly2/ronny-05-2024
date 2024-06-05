@@ -5,7 +5,7 @@ import { useAlertStore } from "@/composables/useAlertStore";
 const alertStore = useAlertStore();
 const { isActive, message, typeAlert } = storeToRefs(alertStore);
 
-const setClasses = () => {
+const getClasses = () => {
   const classAlert = Object.keys(typeAlert?.value).find((key) => typeAlert?.value[key].selected === true)
   return classAlert || 'success';
 };
@@ -13,8 +13,8 @@ const setClasses = () => {
 </script>
 <template>
   <div
-    :class="`${!isActive&&'hidden'} ${typeAlert[setClasses()].class}`"
-    class="flex fixed top-2 right-2 items-center z-20 p-4 mb-4 border border-1 rounded-lg"
+    :class="`${!isActive&&'hidden'} ${typeAlert[getClasses()].class}`"
+    class="flex fixed top-14 right-2 items-center z-20 p-4 mb-4 border border-1 rounded-lg"
   >
     <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -24,7 +24,7 @@ const setClasses = () => {
       <span v-else>{{ message }}</span>
     </div>
     <button
-      :class="`${typeAlert[setClasses()].classIcon}`"
+      :class="`${typeAlert[getClasses()].classIcon}`"
       class="ms-auto -mx-1.5 -my-1.5 inline-flex items-center justify-center h-8 w-8 rounded-lg focus:ring-2"
       type="button"
       @click="alertStore.hideAlert()"

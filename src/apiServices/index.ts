@@ -1,1 +1,1 @@
-export { getAllServiceForGet, getItemByIdServiceForGet, getItemsForPageServiceForGet } from './simpleGet'
+export { getItemByIdServiceForGet, getItemsForPageServiceForGet } from './simpleGet'

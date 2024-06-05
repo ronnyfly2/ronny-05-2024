@@ -108,5 +108,5 @@ export const usePokemonStore = defineStore("pokemon", {
       const description = pokemon.species?.flavor_text_entries.find((description: any) => description.language.name === 'en')
       return description && description.flavor_text ? description.flavor_text : pokemon.species?.flavor_text_entries[0].flavor_text
     }
-  },
+  }
 });

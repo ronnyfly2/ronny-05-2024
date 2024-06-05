@@ -37,7 +37,7 @@ const setAlert = async () =>{
     message: teamStore.error?teamStore.error:`Pokemon <strong>${pokemon.value.name}</strong> added to your team`,
     isActive: true,
     typeAlert: teamStore.error?'error':'success',
-    timeout: 12000
+    timeout: 8000
   }
   return alert;
 }
@@ -70,7 +70,7 @@ const infinite = async () => {
               <button
                 type="button"
                 @click="getPokemon(idx+1)"
-                :disabled="disabledButton"
+                :disabled="disabledButton || item.selected"
                 class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg"
                 :class="item.selected? 'text-white bg-blue-400 dark:bg-blue-500 cursor-not-allowed':'bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'"
               >{{ item.selected?'Selected':'Add' }}

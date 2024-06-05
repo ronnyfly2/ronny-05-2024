@@ -11,11 +11,6 @@ enum StatusCode {
 
 const injectToken = (config: AxiosRequestConfig | any) => {
   try {
-    const token = 'previewtokenPoke'
-
-    if (token != null) {
-      config.headers.Authorization = `Token ${token}`
-    }
     return config
   } catch (error: any) {
     throw new Error(error)
