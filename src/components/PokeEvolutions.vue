@@ -19,8 +19,8 @@ const props = defineProps<{
         <span>{{ pokemonTeam.evolves_from_species.name }}</span>
       </div>
     </div>
-    <strong class="block my-2">Evolutions:</strong>
-    <div class="flex flex-wrap gap-4">
+    <strong class="block my-2">{{ 'Evolutions' }}:</strong>
+    <div v-if="props.pokemonTeam?.chain_evolves_to?.length > 0" class="flex flex-wrap gap-4">
       <div v-for="(evol, idx) in props.pokemonTeam.chain_evolves_to" :key="idx">
         <div v-if="evol.species.name!=props.pokemonTeam.name && evol.species.name!=props.pokemonTeam.evolves_from_species?.name">
           <img class=" w-20 h-20" :src="`https://img.pokemondb.net/sprites/home/normal/${evol.species.name}.png`" :alt="evol.species.name" />
